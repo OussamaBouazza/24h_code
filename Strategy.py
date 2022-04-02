@@ -42,32 +42,35 @@ def RechercheCoordPlusProche(list,coorX,coorY):
         
 
 def vaisseauFaitSaVie(shipNumber, mapNumber):
-    distanceX, distanceY = 100, 10
-    ressource = commande.GetShip(shipNumber)
+    
     casePlaneteX, casePlaneteY = 0,0
     list=RecupCoordPlanet(shipNumber,mapNumber)
+    print (list)
     
-    isLand=0
     x=1
       
-    while x<12:
-        print(commande.GetOxygene(shipNumber))
-        if(commande.GetOxygene(shipNumber) <= 350):
-            print("aled")
-            indice=RechercheCoordPlusProche(list,ressource['x'],ressource['y'])
-            casePlaneteX=list[indice][0]
-            casePlaneteY=list[indice][1]
-            print(casePlaneteX)
-            print(casePlaneteY)
-            commande.Afficheships(shipNumber)
-            if(commande.DeplacementPlanet(shipNumber,casePlaneteX,casePlaneteY) and isLand==0):
-                commande.Land(commande.GetShipID(shipNumber))
+    while x<35:
+        
+        if(commande.GetOxygene(shipNumber) <= 300):
+            while(commande.GetOxygene(shipNumber)<=380):
                 
-                isLand=1
+                print("aled")
+                indice=RechercheCoordPlusProche(list,commande.GetShip(shipNumber)['x'],commande.GetShip(shipNumber)['y'])
+                
+                casePlaneteX=list[indice][0]
+                casePlaneteY=list[indice][1]
+                print(casePlaneteX)
+                print(casePlaneteY)
+                commande.Afficheships(shipNumber)
+                time.sleep(5)
+                if(commande.DeplacementPlanet(shipNumber,casePlaneteX,casePlaneteY) ):
+                    commande.Land(commande.GetShipID(shipNumber))
+                    
+                    
         else:
             commande.action(commande.GetShipID(shipNumber),1,1)
             commande.Afficheships(shipNumber)
-        time.sleep(5)
+            time.sleep(5)
         x=x+1
     
     

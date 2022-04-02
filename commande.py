@@ -147,7 +147,6 @@ def DeplacementPlanet(shipNumber,casePlaneteX,casePlaneteY):
         return 0
     else:
         print("FREREEE")
-        action(GetShipID(shipNumber),0,0)
         return 1
         
      
