@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 Spyder Editor
-
 This is a temporary script file.
 """
 
@@ -67,11 +66,13 @@ def GetShipCarto(shipNumber,mapNumber):
     chemin="{}/team/OUNGA OUNGA/ships/{}/map/{}/carto".format(url,GetShipID(shipNumber),GetMapID(mapNumber))
     r = requests.get(chemin,headers=head).json()
     return r
+
+
     
 
 
-def action(shipID, x, y):
-    link = "{}/team/{}/ships/{}/actions".format(url,teamName,shipID)
+def action(shipNumber, x, y):
+    link = "{}/team/{}/ships/{}/actions".format(url,teamName,GetShipID(shipNumber))
     aList = [{'actions':{'move:0,0'}}]
     jsonData = setEncoder().encode(aList)
     response = requests.put(link,headers = head, json = jsonData)
@@ -79,7 +80,7 @@ def action(shipID, x, y):
 
 
 
-def startVaisseau(shipID, mapID):
+def startVaisseau(shipNumber, mapNumber):
     headers = {
         'access-token':'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJPVU5HQSBPVU5HQSIsImlzcyI6IlNwYWNlT2Rpc3NleUF1dGgifQ.OoCNHe710Cgg65ZdkpImaq0siT8n7pG5ByfKaga-2ro'
     }
@@ -90,10 +91,10 @@ def startVaisseau(shipID, mapID):
         ],
     }
     
-    response = requests.post('{}/team/{}/ships/{}/start/{}'.format(url,teamName,shipID,mapID), headers=headers, json=json_data)
+    response = requests.post('{}/team/{}/ships/{}/start/{}'.format(url,teamName,GetShipID(shipNumber),GetMapID(mapNumber)), headers=headers, json=json_data)
     return response
 
-def stopVaisseau(shipID):
+def stopVaisseau(shipNumber):
     headers = {
         'access-token':'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJPVU5HQSBPVU5HQSIsImlzcyI6IlNwYWNlT2Rpc3NleUF1dGgifQ.OoCNHe710Cgg65ZdkpImaq0siT8n7pG5ByfKaga-2ro'
     }
@@ -102,11 +103,11 @@ def stopVaisseau(shipID):
             'move:0,0',
         ],
     }
-    response = requests.post('{}/team/{}/ships/{}/end/'.format(url,teamName,shipID), headers=headers, json=json_data)
+    response = requests.post('{}/team/{}/ships/{}/end/'.format(url,teamName,GetShipID(shipNumber)), headers=headers, json=json_data)
     return response
 
 
-print(startVaisseau(GetShipID(1), GetMapID(1)))
+print(startVaisseau(1, 1))
 r = GetShipCarto(1,1)
 
 for data in r:
@@ -119,11 +120,8 @@ for data in r:
 
 
 
-    
-    
-    
 
 
-
+    
 
 
