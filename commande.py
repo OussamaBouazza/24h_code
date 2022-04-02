@@ -96,52 +96,61 @@ def Land(shipID):
 def DeplacementPlanet(shipNumber,casePlaneteX,casePlaneteY):
     ship = GetShip(shipNumber)
     
-    
-    
-    
-    if(ship['x'] - 2 >= casePlaneteX):
-        action(GetShipID(shipNumber), -2, 0)
-            
-    elif(ship['x'] + 2 <= casePlaneteX):
-        action(GetShipID(shipNumber), 2, 0)
-            
-            
-    elif(ship['y'] - 2 >= casePlaneteY):
-        action(GetShipID(shipNumber), 0, -2)
-            
-            
-    elif((ship['x'] - 1 >= casePlaneteX) & (ship['y'] - 1 > casePlaneteY)):
-        action(GetShipID(shipNumber), -1, -1)
-        
-    elif((ship['x'] - 1 >= casePlaneteX)):
-        action(GetShipID(shipNumber), -1, 0)
-            
-    elif((ship['y'] - 1 >= casePlaneteY)):
-        action(GetShipID(shipNumber), 0, -1)
-            
-            
-    elif(ship['x'] + 2 <= casePlaneteX):
-        action(GetShipID(shipNumber), 2, 0)
-            
-            
-    elif(ship['y'] + 2 <= casePlaneteY):
-        action(GetShipID(shipNumber), 0, 2)
-           
-            
-    elif((ship['x'] + 1 <= casePlaneteX) & (ship['y'] + 1 <= casePlaneteY)):
+    if(ship['x']<casePlaneteX and ship['y']<casePlaneteY):
         action(GetShipID(shipNumber), 1, 1)
-            
-    elif((ship['x'] + 1 <= casePlaneteX)):
-        action(GetShipID(shipNumber), 1, 0)
-            
-    elif((ship['y'] + 1 <= casePlaneteY)):
-        action(GetShipID(shipNumber), 0, 1)
-            
-    elif((ship['x'] + 1 <= casePlaneteX & (ship['y'] - 1 >= casePlaneteY))):
+        return 0
+        
+    elif(ship['x']<casePlaneteX and ship['y']>casePlaneteY):
         action(GetShipID(shipNumber), 1, -1)
-            
-    elif((ship['x'] - 1 >= casePlaneteX & (ship['y'] + 1 <= casePlaneteY))):
+        return 0
+        
+    elif(ship['x']>casePlaneteX and ship['y']>casePlaneteY):
+        
+        action(GetShipID(shipNumber), -1, -1)
+        return 0
+        
+    elif(ship['x']>casePlaneteX and ship['y']<casePlaneteY):
         action(GetShipID(shipNumber), -1, 1)
+        return 0
+        
+    elif(ship['x']==casePlaneteX and ship['y']<casePlaneteY-1):
+        action(GetShipID(shipNumber), 0, 2)
+        return 0
+        
+    elif(ship['x']==casePlaneteX and ship['y']>casePlaneteY+1):
+        action(GetShipID(shipNumber), 0, -2)
+        return 0
+        
+    elif(ship['x']==casePlaneteX and ship['y']<casePlaneteY):
+        action(GetShipID(shipNumber), 0, 1)
+        return 0
+        
+    elif(ship['x']==casePlaneteX and ship['y']>casePlaneteY):
+        action(GetShipID(shipNumber), 0, -1)
+        return 0
+        
+    elif(ship['x']<casePlaneteX-1 and ship['y']==casePlaneteY):
+        action(GetShipID(shipNumber), 2, 0)
+        return 0
+        
+    elif(ship['x']>casePlaneteX+1 and ship['y']==casePlaneteY):
+        
+        action(GetShipID(shipNumber), -2, 0)
+        return 0
+        
+    elif(ship['x']>casePlaneteX and ship['y']==casePlaneteY):
+        action(GetShipID(shipNumber), -1, 0)
+        return 0
+        
+    elif(ship['x']<casePlaneteX and ship['y']==casePlaneteY):
+        action(GetShipID(shipNumber), 1, 0)
+        return 0
+    else:
+        print("FREREEE")
+        action(GetShipID(shipNumber),0,0)
+        return 1
+        
+     
 
 def Afficheships(shipNumber):
      
