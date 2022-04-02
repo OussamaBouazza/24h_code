@@ -67,12 +67,6 @@ def GetShipCarto(shipNumber,mapNumber):
     chemin="{}/team/OUNGA OUNGA/ships/{}/map/{}/carto".format(url,GetShipID(shipNumber),GetMapID(mapNumber))
     r = requests.get(chemin,headers=head).json()
     return r
-
-
-def StartVaisseau(shipNumber,mapNumber):
-    chemin="/team/OUNGA OUNGA/ships/{}/start/{}".format(GetShipID(shipNumber),GetMapID(mapNumber))
-    r = requests.post(chemin,headers=head)
-    return r
     
 
 
