@@ -115,6 +115,9 @@ for data in r:
 #print(stopVaisseau(GetShipID(1)))
 
 
+
+
+
     
     
 
