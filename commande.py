@@ -226,7 +226,7 @@ def GetCrew(shipNumber):
 
 #print(stopVaisseau(GetShipID(1)))
 
-print(Afficheships(1))
+#print(Afficheships(1))
 
     
     

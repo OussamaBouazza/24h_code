@@ -9,7 +9,7 @@ Created on Sat Apr  2 18:18:57 2022
 import commande
 import time
 import json
-
+import Affichage 
 
 
 print(commande.stopVaisseau(commande.GetShipID(2)))
@@ -71,6 +71,8 @@ def vaisseauFaitSaVie(shipNumber, mapNumber):
             commande.action(commande.GetShipID(shipNumber),1,1)
             commande.Afficheships(shipNumber)
             time.sleep(5)
+            Affichage.generer(shipNumber,mapNumber, commande.GetWater(shipNumber))
+            
         x=x+1
     
     
@@ -78,7 +80,7 @@ def vaisseauFaitSaVie(shipNumber, mapNumber):
          
                     
 
-#vaisseauFaitSaVie(2,2)
+vaisseauFaitSaVie(2,2)
 
 
 
