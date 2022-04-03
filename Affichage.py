@@ -7,16 +7,16 @@ Created on Sun Apr  3 00:24:18 2022
 
 
 #Personnalisation de la fenêtre
-image_planete="D:\GitHub\24h_code\ressources\planetes\planet-1.png"
+image_planete="\ressources\planetes\planet-1.png"
 titre_fenetre = "Space Travellers"
-image_icone = "D:\GitHub\24h_code\ressources\icones\crewmate.png"
+image_icone = "\ressources\icones\crewmate.png"
 #image_fond = "ecran.png"
 
 #Images des vaisseaux
-droite="D:\GitHub\24h_code\ressources\spaceships\droite.png"
-gauche="D:\GitHub\24h_code\ressources\spaceships\gauche.png"
-haut="D:\GitHub\24h_code\ressources\spaceships\haut.png"
-bas="D:\GitHub\24h_code\ressources\spaceships\bas.png"
+droite="\ressources\spaceships\droite.png"
+gauche="\ressources\spaceships\gauche.png"
+haut="\ressources\spaceships\haut.png"
+bas="\ressources\spaceships\bas.png"
 
 
 import pygame
@@ -35,6 +35,18 @@ mapNumber=2
 BLACK = (0, 0, 0)
 GRID_COLOR = (87, 0, 113)
 
+#Texte
+#blue = (0, 0, 128)
+#white = (255, 255, 255)
+#X = 400
+#Y = 400
+#display_surface = pygame.display.set_mode((X, Y))
+#pygame.display.set_caption('Show Text')
+#police = pygame.font.Font(None,72)
+#texte = police.render("Mon texte",True,pygame.Color("#FFFF00"))
+#textRect = texte.get_rect()
+#textRect.center = (X // 2, Y // 2)
+
 
 def main():
     global screen 
@@ -42,8 +54,11 @@ def main():
     zeecran=pygame.image.load("ecran.png").convert_alpha()
 
     while True:
+        
         screen.blit(zeecran, (0,0))
         drawGrid()
+        #display_surface.fill(white)
+        #display_surface.blit(texte, textRect)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -67,8 +82,12 @@ class map():
         print(RecupCoordPlanet(shipNumber,mapNumber))
         
         #structure_niveau = [RecupCoordPlanet(shipNumber,mapNumber)]
-    def stats(self, shipNumber):
-        Afficheschips
+    #def stats(self, shipNumber):
+        
+ 
+        
+        
+        #Afficheschips(1)
     
     
   
@@ -79,8 +98,8 @@ icone = pygame.image.load("crewmate.png")
 pygame.display.set_icon(icone)
 
 #Titre
-vaisseauFaitSaVie(shipNumber, mapNumber)
-print(RecupCoordPlanet(shipNumber,mapNumber))
+#vaisseauFaitSaVie(shipNumber, mapNumber)
+#print(RecupCoordPlanet(shipNumber,mapNumber))
 
 main()
 
