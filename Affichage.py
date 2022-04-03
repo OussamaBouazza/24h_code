@@ -22,7 +22,8 @@ bas="D:\GitHub\24h_code\ressources\spaceships\bas.png"
 import pygame
 import sys
 
-#from Strategy import RecupCoordPlanet
+from Strategy import RecupCoordPlanet
+from Strategy import vaisseauFaitSaVie
 
 
 nb_sprite = 20
@@ -30,6 +31,7 @@ cell_size = 35
 height = nb_sprite*cell_size
 width = height+200
 shipNumber=1
+mapNumber=2
 BLACK = (0, 0, 0)
 GRID_COLOR = (87, 0, 113)
 
@@ -37,7 +39,7 @@ GRID_COLOR = (87, 0, 113)
 def main():
     global screen 
     screen = pygame.display.set_mode((width, height))
-    zeecran=pygame.image.load("ecran3.png").convert_alpha()
+    zeecran=pygame.image.load("ecran.png").convert_alpha()
 
     while True:
         screen.blit(zeecran, (0,0))
@@ -58,25 +60,34 @@ def drawGrid():
             pygame.draw.rect(screen, GRID_COLOR, rect, 1)
             
 
-#class map():
+class map():
     
-    #def generer(self,mapNumber):
-        #print(RecupCoordPlanet(shipNumber,mapNumber))
-        #structure_niveau = [RecupCoordPlanet(shipNumber,mapNumber)]
+    def generer(self,shipNumber,mapNumber):
+        vaisseauFaitSaVie(shipNumber, mapNumber)
+        print(RecupCoordPlanet(shipNumber,mapNumber))
         
+        #structure_niveau = [RecupCoordPlanet(shipNumber,mapNumber)]
+    def stats(self, shipNumber):
+        Afficheschips
     
     
-    
+  
 pygame.init()
 
 #Icone
-#icone = pygame.image.load(image_icone)
-#pygame.display.set_icon(icone)
+icone = pygame.image.load("crewmate.png")
+pygame.display.set_icon(icone)
 
 #Titre
-pygame.display.set_caption(titre_fenetre)
+vaisseauFaitSaVie(shipNumber, mapNumber)
+print(RecupCoordPlanet(shipNumber,mapNumber))
 
 main()
-#map.generer(1)
+
+map.generer(2,2) 
 
 
+
+
+   
+ 

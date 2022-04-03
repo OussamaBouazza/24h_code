@@ -78,7 +78,7 @@ def vaisseauFaitSaVie(shipNumber, mapNumber):
          
                     
 
-vaisseauFaitSaVie(2,2)
+#vaisseauFaitSaVie(2,2)
 
 
 
@@ -86,5 +86,5 @@ vaisseauFaitSaVie(2,2)
 
 
 
-print(commande.GetShip(2))
-print(commande.stopVaisseau(commande.GetShipID(2)))
+#print(commande.GetShip(2))
+#print(commande.stopVaisseau(commande.GetShipID(2)))
