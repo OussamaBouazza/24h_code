@@ -63,6 +63,7 @@ def vaisseauFaitSaVie(shipNumber, mapNumber):
                 print(casePlaneteY)
                 commande.Afficheships(shipNumber)
                 time.sleep(5)
+                Affichage.generer(shipNumber,mapNumber, commande.GetWater(shipNumber))
                 if(commande.DeplacementPlanet(shipNumber,casePlaneteX,casePlaneteY) ):
                     commande.Land(commande.GetShipID(shipNumber))
                     
