@@ -22,11 +22,14 @@ bas="D:\GitHub\24h_code\ressources\spaceships\bas.png"
 import pygame
 import sys
 
+#from Strategy import RecupCoordPlanet
+
+
 nb_sprite = 20
 cell_size = 35
 height = nb_sprite*cell_size
 width = height+200
-
+shipNumber=1
 BLACK = (0, 0, 0)
 GRID_COLOR = (87, 0, 113)
 
@@ -54,7 +57,16 @@ def drawGrid():
             rect = pygame.Rect(x, y, cell_size, cell_size)
             pygame.draw.rect(screen, GRID_COLOR, rect, 1)
             
-            
+
+#class map():
+    
+    #def generer(self,mapNumber):
+        #print(RecupCoordPlanet(shipNumber,mapNumber))
+        #structure_niveau = [RecupCoordPlanet(shipNumber,mapNumber)]
+        
+    
+    
+    
 pygame.init()
 
 #Icone
@@ -65,4 +77,6 @@ pygame.init()
 pygame.display.set_caption(titre_fenetre)
 
 main()
+#map.generer(1)
+
 
