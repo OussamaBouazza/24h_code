@@ -56,7 +56,7 @@ class Grille:
         self.cell_size = cell_size
         self.center_cell = Vector2((width - 1) / 2, (height - 1) / 2)
         
-    def display1(self, screen):
+    def display(self, screen):
         
         # Horizontal
         for y in range(0, self.height + self.cell_size, self.cell_size):
